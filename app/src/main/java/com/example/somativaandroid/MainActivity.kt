@@ -31,5 +31,9 @@ class MainActivity : AppCompatActivity() {
             val user = User(email = email, senha = senha)
             UserSingleton.addUser(user)
         }
+
+
+
+
     }
 }
