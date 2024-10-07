@@ -36,8 +36,8 @@
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="Please type your password"
         android:inputType="text"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -81,8 +81,8 @@
         android:layout_height="49dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Please type your e-mail "
         android:inputType="text"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

@@ -2,6 +2,7 @@ package com.example.somativaandroid
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.somativaandroid.databinding.ActivityMainBinding
 import com.example.somativaandroid.recyclerviewpackage.User
 import com.example.somativaandroid.recyclerviewpackage.UserSingleton
+import com.example.somativaandroid.recyclerviewpackage.userDatabase
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,9 +31,20 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             val email = binding.editTextText2.text.toString()
             val senha = binding.editTextText.text.toString()
-            val username = binding.editTextText2.toString()
-            val user = User(email = email, senha = senha, username = username)
-            UserSingleton.addUser(user)
+            val userDao = userDatabase.getInstance(this)?.UserDAO()
+
+            // Check if user with the given email and password exists
+            val user = userDao?.getUserByEmailAndPassword(email, senha)
+
+            if (user != null) {
+                // Email and password match
+                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HomepageActivity::class.java)
+                startActivity(intent)
+            } else {
+                // Email or password incorrect
+                Toast.makeText(this, "Invalid email or password!", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.goToLogin.setOnClickListener {
