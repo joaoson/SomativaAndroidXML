@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             val email = binding.editTextText2.text.toString()
             val senha = binding.editTextText.text.toString()
-            val user = User(email = email, senha = senha)
+            val username = binding.editTextText2.toString()
+            val user = User(email = email, senha = senha, username = username)
             UserSingleton.addUser(user)
         }
 
