@@ -12,14 +12,17 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.signuppage)
 
         // Layout
         val Username: EditText = findViewById(R.id.Username)
         val Email: EditText = findViewById(R.id.Email)
         val Password: EditText = findViewById(R.id.Password)
         val cbAgeConfirmation: CheckBox = findViewById(R.id.cbAgeConfirmation)
+
         val btnLaunchJourney: Button = findViewById(R.id.btnLaunchJourney)
+        val btnLoginBack: Button = findViewById(R.id.btnLaunchJourney2)
+
 
         // Botão "Launch Your Journey"
         btnLaunchJourney.setOnClickListener {
@@ -37,6 +40,11 @@ class SignUpActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please confirm that you are 16 years or older.", Toast.LENGTH_SHORT).show()
             }
+        }
+        btnLoginBack.setOnClickListener {
+            // Intent para navegar para a SecondActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

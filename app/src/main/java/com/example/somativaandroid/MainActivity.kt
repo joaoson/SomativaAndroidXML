@@ -1,5 +1,6 @@
 package com.example.somativaandroid
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,18 +19,24 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         UserSingleton.setContext(this)
-        setContentView(R.layout.activity_main)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        binding.button2.setOnClickListener {
+        binding.button.setOnClickListener {
             val email = binding.editTextText2.text.toString()
             val senha = binding.editTextText.text.toString()
             val user = User(email = email, senha = senha)
             UserSingleton.addUser(user)
+        }
+
+        binding.goToLogin.setOnClickListener {
+            // Intent para navegar para a SecondActivity
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
 
 
