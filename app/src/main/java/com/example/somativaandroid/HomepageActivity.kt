@@ -1,4 +1,5 @@
 package com.example.somativaandroid
+import MarginItemDecoration
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.somativaandroid.recyclerviewpackage.Planet
 import com.example.somativaandroid.recyclerviewpackage.PlanetSingleton
 import com.example.somativaandroid.databinding.HomepageBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Response
 
 
@@ -29,7 +31,12 @@ class HomepageActivity : AppCompatActivity() {
 
         binding.recyclerView.adapter = planetAdapter
         binding.recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        binding.recyclerView.addItemDecoration(MarginItemDecoration(22))
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        val navbarActivity = NavbarActivity(this)
+        navbarActivity.setupNavbar(bottomNavigationView)
 
         fetchExoplanets()
     }
