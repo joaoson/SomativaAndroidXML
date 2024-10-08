@@ -6,7 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="688dp"
         android:padding="16dp">
 
 
@@ -15,41 +15,41 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- App Name -->
             <TextView
                 android:id="@+id/appNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cosmic Explorer"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
                 android:gravity="center"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="Cosmic Explorer"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <!-- Subtitle -->
             <TextView
                 android:id="@+id/headerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Let's see who is the explorer today!"
-                android:textSize="16sp"
-                android:textColor="@android:color/darker_gray"
                 android:gravity="center"
-                android:paddingBottom="16dp" />
+                android:paddingBottom="16dp"
+                android:text="Let's see who is the explorer today!"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/profilePicture"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="52dp"
-            android:src="@drawable/ic_profile"
+            android:src="@drawable/antronaut1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,11 +71,11 @@
             android:id="@+id/galacticEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
             android:text="Galactic Email:"
-            android:textSize="16sp"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userName" />
 
@@ -83,20 +83,20 @@
             android:id="@+id/galacticEmailAdress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="108dp"
             android:text="Untitled"
-            android:textSize="16sp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userName" />
+            app:layout_constraintTop_toBottomOf="@+id/galacticEmail" />
 
         <TextView
             android:id="@+id/missionStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="136dp"
+            android:layout_width="278dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="56dp"
             android:text="Mission Status: Exploring the Andromeda Galaxy"
-            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/galacticEmail" />
@@ -105,12 +105,25 @@
             android:id="@+id/editProfileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="12dp"
             android:text="Edit Cosmic Profile"
+            android:textSize="20sp"
             app:backgroundTint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/missionStatus" /> <!-- Example button color -->
+            app:layout_constraintTop_toBottomOf="@id/missionStatus" />
+
+        <Button
+            android:id="@+id/deleteProfileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abandon Journey"
+            android:textSize="20sp"
+            app:backgroundTint="#F44336"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editProfileButton" /> <!-- Example button color -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -44,8 +44,12 @@ class MainActivity : AppCompatActivity() {
 
             if (user != null) {
                 // Email and password match
-                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, HomepageActivity::class.java)
+                val intent = Intent(this, NavbarPageActivity::class.java)
+                val sharedPreferences = getSharedPreferences("UserPreferences", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("loggedInUserEmail", user.email)
+                editor.putString("loggedInUser", user.username) // Assuming 'id' is a field in your User class
+                editor.apply()
                 startActivity(intent)
             } else {
                 // Email or password incorrect

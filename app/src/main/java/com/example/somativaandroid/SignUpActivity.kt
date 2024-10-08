@@ -39,6 +39,9 @@ class SignUpActivity : AppCompatActivity() {
             if (cbAgeConfirmation.isChecked) {
                 if (email.isNotEmpty() && username.isNotEmpty() && password.isNotEmpty()) {
                     val intent = Intent(this, HomepageActivity::class.java) //Adicionar a pagina seguinte
+                    val user = User(email = email, senha = password, username = username)
+                    UserSingleton.addUser(user)
+
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
@@ -48,8 +51,7 @@ class SignUpActivity : AppCompatActivity() {
             }
 
 
-            val user = User(email = email, senha = password, username = username)
-            UserSingleton.addUser(user)
+
 
         }
         btnLoginBack.setOnClickListener {
