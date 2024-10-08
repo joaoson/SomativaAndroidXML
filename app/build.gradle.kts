@@ -62,6 +62,7 @@ dependencies {
 
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
 
 
     // Unit testing dependencies

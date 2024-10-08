@@ -2,10 +2,12 @@ package com.example.somativaandroid
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import com.bumptech.glide.Glide
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.somativaandroid.databinding.ActivityMainBinding
@@ -27,6 +29,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val imageCosmic = findViewById<ImageView>(R.id.cosmic)
+        Glide.with(this).load("https://filedn.com/lvGfwT6oV64Y1r7lDsc9I60/cosmic.png").into(imageCosmic)
+
 
         binding.button.setOnClickListener {
             val email = binding.editTextText2.text.toString()
