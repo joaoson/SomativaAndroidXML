@@ -37,7 +37,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Please type your password"
-        android:inputType="text"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -98,8 +98,8 @@
 
     <ImageView
         android:id="@+id/cosmic"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="202dp"
+        android:layout_height="203dp"
         android:layout_marginTop="16dp"
         android:maxWidth="15dp"
         android:maxHeight="15dp"
