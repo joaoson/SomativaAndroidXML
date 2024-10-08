@@ -6,36 +6,28 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import com.example.somativaandroid.databinding.ActivityMainBinding
-import com.example.somativaandroid.recyclerviewpackage.User
-import com.example.somativaandroid.recyclerviewpackage.UserSingleton
 
 class SignUpActivity : AppCompatActivity() {
-    lateinit var binding: SignUpActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signuppage)
-        enableEdgeToEdge()
 
         // Layout
         val Username: EditText = findViewById(R.id.Username)
         val Email: EditText = findViewById(R.id.Email)
         val Password: EditText = findViewById(R.id.Password)
         val cbAgeConfirmation: CheckBox = findViewById(R.id.cbAgeConfirmation)
-
         val btnLaunchJourney: Button = findViewById(R.id.btnLaunchJourney)
-        val btnLoginBack: Button = findViewById(R.id.btnLaunchJourney2)
-
 
         // Botão "Launch Your Journey"
         btnLaunchJourney.setOnClickListener {
-            val email = Email.text.toString()
-            val username = Username.text.toString()
-            val password = Password.text.toString()
             if (cbAgeConfirmation.isChecked) {
+                val email = Email.text.toString()
+                val username = Username.text.toString()
+                val password = Password.text.toString()
+
                 if (email.isNotEmpty() && username.isNotEmpty() && password.isNotEmpty()) {
                     val intent = Intent(this, HomepageActivity::class.java) //Adicionar a pagina seguinte
                     startActivity(intent)
@@ -45,18 +37,6 @@ class SignUpActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please confirm that you are 16 years or older.", Toast.LENGTH_SHORT).show()
             }
-
-
-            val user = User(email = email, senha = password, username = username)
-            UserSingleton.addUser(user)
-
         }
-        btnLoginBack.setOnClickListener {
-            // Intent para navegar para a SecondActivity
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-
     }
 }

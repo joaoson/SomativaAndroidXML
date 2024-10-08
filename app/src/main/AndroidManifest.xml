@@ -21,17 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomepageActivity"
-            android:exported="true" >
-            <!--
-                If HomepageActivity is the main entry point, add the following intent filters:
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
-            -->
-        </activity>
+
         <activity android:name=".SignUpActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SomativaAndroid"/>
+
+        <activity android:name=".NavbarPlanetsActivity" />
+        <activity android:name=".NavbarNasaPhotosActivity" />
+        <activity android:name=".NavbarProfileActivity" />
+
+        <activity android:name=".HomepageActivity"
             android:exported="true" >
             <!--
                 If HomepageActivity is the main entry point, add the following intent filters:

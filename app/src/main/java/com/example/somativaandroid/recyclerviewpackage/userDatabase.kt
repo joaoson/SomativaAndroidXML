@@ -3,11 +3,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 
-
-@Database(entities = [User::class], version = 2, exportSchema = false)
+@Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class userDatabase :RoomDatabase() {
     abstract fun UserDAO(): UserDAO
     companion object {
@@ -20,18 +17,11 @@ abstract class userDatabase :RoomDatabase() {
                         context.applicationContext,
                         userDatabase::class.java,
                         DATABASE_NAME
-                    ).allowMainThreadQueries().addMigrations(MIGRATION_1_2).build()
+                    ).allowMainThreadQueries().build()
                 }
             }
             return instance
 
         }
-
-    val MIGRATION_1_2: Migration = object : Migration(1, 2) {
-        override fun migrate(db: SupportSQLiteDatabase) {
-            // Example: Add a new column to an existing table
-            db.execSQL("ALTER TABLE usuarios ADD COLUMN username TEXT NOT NULL DEFAULT ' '")
-        }
-    }
     }
 }
