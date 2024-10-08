@@ -36,9 +36,19 @@ class NasaPhotosActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Initialize RecyclerView
-        binding.recyclerView.layoutManager = GridLayoutManager(this,1)
-        binding.recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        binding.recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL))
+        binding.recyclerView.layoutManager = GridLayoutManager(this, 1)
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.HORIZONTAL
+            )
+        )
 
         adapter = NasaImageAdapter(emptyList()) // Initialize with an empty list
         binding.recyclerView.adapter = adapter
@@ -57,13 +67,22 @@ class NasaPhotosActivity : AppCompatActivity() {
 
 
         call.enqueue(object : Callback<NasaImageResponse> {
-            override fun onResponse(call: Call<NasaImageResponse>, response: Response<NasaImageResponse>) {
+            override fun onResponse(
+                call: Call<NasaImageResponse>,
+                response: Response<NasaImageResponse>
+            ) {
                 if (response.isSuccessful) {
                     Log.d("HomePageActivity", "Full Response: ${response.body()}")
 
                     // Log the collection info
-                    Log.d("HomePageActivity", "Collection href: ${response.body()?.collection?.href}")
-                    Log.d("HomePageActivity", "Collection version: ${response.body()?.collection?.version}")
+                    Log.d(
+                        "HomePageActivity",
+                        "Collection href: ${response.body()?.collection?.href}"
+                    )
+                    Log.d(
+                        "HomePageActivity",
+                        "Collection version: ${response.body()?.collection?.version}"
+                    )
                     val nasaImages = response.body()?.collection?.items ?: emptyList()
                     Log.d("HomePageActivity", "Received ${nasaImages.size} items")
 
@@ -80,5 +99,4 @@ class NasaPhotosActivity : AppCompatActivity() {
             }
         })
     }
-
 }

@@ -1,11 +1,11 @@
 package com.example.somativaandroid
 
+import PlanetsFragment
 import ProfileFragment
 import android.app.Activity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.example.somativaandroid.fragments.NasaPhotosFragment
-import com.example.somativaandroid.fragments.PlanetsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NavbarActivity(private val activity: FragmentActivity) {

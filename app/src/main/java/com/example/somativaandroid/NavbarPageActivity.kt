@@ -1,8 +1,8 @@
 package com.example.somativaandroid
 
+import PlanetsFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.somativaandroid.fragments.PlanetsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NavbarPageActivity : AppCompatActivity() {
@@ -18,7 +18,7 @@ class NavbarPageActivity : AppCompatActivity() {
         // Set default fragment when activity starts
         if (savedInstanceState == null) {
             navbarActivity.setupNavbar(bottomNavigationView)
-            navbarActivity.replaceFragment(PlanetsFragment()) // Set initial fragment
+            navbarActivity.replaceFragment( PlanetsFragment()) // Set initial fragment
         }
     }
 }

@@ -64,10 +64,14 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("com.github.bumptech.glide:glide:4.13.0")
     implementation("com.squareup.picasso:picasso:2.8")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation("androidx.fragment:fragment-ktx:1.5.1")
 
 
     // Unit testing dependencies
     testImplementation(libs.junit)
+
 
     // Android Instrumented testing dependencies
     androidTestImplementation(libs.androidx.junit)

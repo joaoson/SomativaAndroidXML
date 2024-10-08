@@ -27,12 +27,14 @@ class NasaImageAdapter(private val images: List<ImageItem>) : // Use ImageItem, 
                         .load(imageLink)
                         .into(binding.imageView)
                 }
+
             } else {
                 // Handle the case when there is no data available
                 binding.titleTextView.text = "No title available"
                 binding.descriptionTextView.text = "No description available"
                 binding.imageView.setImageResource(R.drawable.ic_planet) // Use a placeholder image if necessary
             }
+
         }
 
     }
