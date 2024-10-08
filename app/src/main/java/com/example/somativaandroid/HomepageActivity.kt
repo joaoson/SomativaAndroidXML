@@ -23,11 +23,10 @@ class HomepageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.homepage)
+        binding = DataBindingUtil.setContentView(this,R.layout.homepage)
 
         planetAdapter = PlanetAdapter()
 
-        binding = DataBindingUtil.setContentView(this,R.layout.homepage)
         binding.recyclerView.adapter = planetAdapter
         binding.recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
@@ -60,6 +59,7 @@ class HomepageActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<Planet>>, t: Throwable) {
                 // Lida com falhas de rede ou outros erros
+                println(t.message)
                 Toast.makeText(this@HomepageActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })

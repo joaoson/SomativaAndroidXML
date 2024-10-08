@@ -12,6 +12,12 @@ class PlanetAdapter() :
     inner class ViewHolder(val binding: PlanetItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(planet: Planet){
             binding.planetNameTextView.text = planet.name
+            binding.planetNameTextView5.text = planet.gaiaId
+            binding.planetNameTextView4.text = planet.discoveryYear.toString()
+            binding.planetNameTextView7.text = planet.discoveryMethod
+            binding.planetNameTextView9.text = planet.discoveryLocale
+            binding.planetNameTextView11.text = planet.discoveryFacility
+            binding.planetNameTextView13.text = planet.discoveryTelescope
         }
     }
 
