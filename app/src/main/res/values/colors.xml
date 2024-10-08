@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="blue">#1E88E5</color> <!-- Main blue color -->
+    <color name="light_blue_background">#E3F2FD</color> <!-- Light blue background -->
+    <color name="light_gray">#B0BEC5</color> <!-- Light gray color -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
