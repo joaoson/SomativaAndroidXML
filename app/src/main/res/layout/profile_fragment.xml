@@ -7,72 +7,110 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/light_blue_background"> <!-- Set background color -->
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/profileTitle"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:id="@+id/header_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="User Profile"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_margin="16dp"
+            android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- App Name -->
+            <TextView
+                android:id="@+id/appNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cosmic Explorer"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:paddingBottom="4dp" />
+
+            <!-- Subtitle -->
+            <TextView
+                android:id="@+id/headerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let's see who is the explorer today!"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center"
+                android:paddingBottom="16dp" />
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/profilePicture"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="52dp"
             android:src="@drawable/ic_profile"
-            app:layout_constraintTop_toBottomOf="@id/profileTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/header_title" />
 
         <TextView
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="John Doe"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/profilePicture"
+            android:layout_marginTop="48dp"
+            android:text="Untitled"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/profilePicture" />
 
         <TextView
             android:id="@+id/galacticEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Galactic Email: stardust.voyager@cosmicexplorers.space"
+            android:layout_marginTop="24dp"
+            android:text="Galactic Email:"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/userName"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userName" />
+
+        <TextView
+            android:id="@+id/galacticEmailAdress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:text="Untitled"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userName" />
 
         <TextView
             android:id="@+id/missionStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="136dp"
             android:text="Mission Status: Exploring the Andromeda Galaxy"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/galacticEmail"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/galacticEmail" />
 
         <Button
             android:id="@+id/editProfileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:text="Edit Cosmic Profile"
-            app:layout_constraintTop_toBottomOf="@id/missionStatus"
-            app:layout_constraintStart_toStartOf="parent"
+            app:backgroundTint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"
-            app:backgroundTint="@color/blue" /> <!-- Example button color -->
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/missionStatus" /> <!-- Example button color -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
