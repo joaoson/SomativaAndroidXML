@@ -6,53 +6,57 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="#7E7B7B"
         android:padding="16dp">
 
         <!-- Header Layout -->
+
+        <!-- Search bar and button -->
         <LinearLayout
             android:id="@+id/header_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- App Name -->
             <TextView
                 android:id="@+id/appNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cosmic Explorer"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
                 android:gravity="center"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="Cosmic Explorer"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <!-- Subtitle -->
+
             <TextView
                 android:id="@+id/headerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Look at NASA's top photos"
-                android:textSize="16sp"
-                android:textColor="@android:color/darker_gray"
                 android:gravity="center"
-                android:paddingBottom="16dp" />
+                android:paddingBottom="16dp"
+                android:text="Look at NASA's top photos"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
-        <!-- Search bar and button -->
         <LinearLayout
             android:id="@+id/search_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/header_title"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/header_title">
 
             <EditText
                 android:id="@+id/search_query"
@@ -67,8 +71,8 @@
                 android:id="@+id/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Search"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:text="Search" />
         </LinearLayout>
 
         <!-- RecyclerView for displaying NASA images -->
@@ -76,11 +80,25 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/search_container"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:listitem="@layout/item_nasa_image"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_container"
+            tools:listitem="@layout/item_nasa_image" />
+
+        <Button
+            android:id="@+id/toggleSpanButton"
+            android:layout_width="56dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#905050"
+            android:drawableTop="@drawable/gridsvg2"
+            android:text=""
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/header_title"
+            app:layout_constraintEnd_toEndOf="@+id/header_title"
+            app:layout_constraintTop_toTopOf="@+id/header_title" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -32,6 +32,7 @@ class NasaPhotosFragment : Fragment() {
 
     private lateinit var binding: NasaPhotosActivitySeachBinding
     private lateinit var adapter: NasaImageAdapter
+    private var isSingleColumn: Boolean = false // Track if single column or not
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,8 +46,9 @@ class NasaPhotosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize RecyclerView
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        // Initialize RecyclerView with 2 columns by default
+        val gridLayoutManager = GridLayoutManager(requireContext(), 2)
+        binding.recyclerView.layoutManager = gridLayoutManager
         binding.recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         binding.recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL))
 
@@ -54,7 +56,6 @@ class NasaPhotosFragment : Fragment() {
         binding.recyclerView.adapter = adapter
 
         // Fetch NASA images
-
         binding.searchButton.setOnClickListener {
             val query = binding.searchQuery.text.toString().trim()
             if (query.isNotEmpty()) {
@@ -64,6 +65,14 @@ class NasaPhotosFragment : Fragment() {
             }
         }
         fetchNasaImages("galaxy") // Example search query "galaxy"
+
+        // Toggle column span on button click
+        binding.toggleSpanButton.setOnClickListener {
+            isSingleColumn = !isSingleColumn
+            val newSpanCount = if (isSingleColumn) 1 else 2
+            gridLayoutManager.spanCount = newSpanCount
+            adapter.notifyDataSetChanged() // Notify adapter that the layout has changed
+        }
     }
 
     private fun fetchNasaImages(query: String) {
