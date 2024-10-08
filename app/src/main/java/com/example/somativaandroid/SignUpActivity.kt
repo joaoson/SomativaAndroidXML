@@ -30,6 +30,7 @@ class SignUpActivity : AppCompatActivity() {
         val btnLoginBack: Button = findViewById(R.id.btnLaunchJourney2)
 
 
+
         // Botão "Launch Your Journey"
         btnLaunchJourney.setOnClickListener {
             val email = Email.text.toString()
@@ -55,6 +56,8 @@ class SignUpActivity : AppCompatActivity() {
             // Intent para navegar para a SecondActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+
         }
 
 
