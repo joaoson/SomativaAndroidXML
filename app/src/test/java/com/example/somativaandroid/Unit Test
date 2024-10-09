@@ -1,0 +1,48 @@
+import org.junit.Assert.*
+import org.junit.Before
+import org.junit.Test
+import org.mockito.Mock
+import org.mockito.Mockito.*
+import org.mockito.MockitoAnnotations
+import com.example.somativaandroid.recyclerviewpackage.User
+import com.example.somativaandroid.recyclerviewpackage.UserDAO
+
+class MainActivityTest {
+
+    @Mock
+    private lateinit var userDao: UserDAO
+
+    @Before
+    fun setUp() {
+        // Inicializa os mocks
+        MockitoAnnotations.openMocks(this)
+    }
+
+    @Test
+    fun testValidLogin() {
+        // Mock do usuário correto
+        val mockUser = User(id = 1, email = "user@example.com", username = "username", senha = "password")
+
+        // Simula o comportamento do método getUserByEmailAndPassword
+        `when`(userDao.getUserByEmailAndPassword("user@example.com", "password")).thenReturn(mockUser)
+
+        // Verifica o login
+        val user = userDao.getUserByEmailAndPassword("user@example.com", "password")
+
+        // Verifica se o usuário não é nulo e os valores
+        assertNotNull(user)
+        assertEquals("user@example.com", user?.email)
+        assertEquals("username", user?.username)
+    }
+
+    @Test
+    fun testInvalidLogin() {
+        // Simula um login com credenciais incorretas
+        `when`(userDao.getUserByEmailAndPassword("invalid@example.com", "wrongpassword")).thenReturn(null)
+
+        // Verifica se o retorno é nulo para credenciais inválidas
+        val user = userDao.getUserByEmailAndPassword("invalid@example.com", "wrongpassword")
+
+        assertNull(user)
+    }
+}
