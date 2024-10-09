@@ -1,24 +1,31 @@
-package com.example.somativaandroid
-
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import androidx.test.platform.app.InstrumentationRegistry
+import com.example.somativaandroid.recyclerviewpackage.User
+import com.example.somativaandroid.recyclerviewpackage.UserSingleton
+import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
-
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class SignUpActivityInstrumentedTest {
+
+    @Before
+    fun setUp() {
+        //Verifica se o UserSingleton inicializa corretamente
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        UserSingleton.setContext(context)
+        UserSingleton.userList = emptyList()
+    }
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.somativaandroid", appContext.packageName)
+    fun testAddUserWithValidInputs() {
+        // Adiciona um usuário na lista
+        val user = User(email = "test@example.com", senha = "password123", username = "testuser")
+        UserSingleton.addUser(user)
+
+        val addedUser = UserSingleton.userList.find { it.email == "test@example.com" }
+        assertNotNull(addedUser)
+        assertEquals("testuser", addedUser?.username)
     }
 }
