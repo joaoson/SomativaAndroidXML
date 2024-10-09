@@ -1,4 +1,5 @@
 package com.example.somativaandroid
+import MarginItemDecoration
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.somativaandroid.recyclerviewpackage.Planet
 import com.example.somativaandroid.recyclerviewpackage.PlanetSingleton
 import com.example.somativaandroid.databinding.HomepageBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Response
 
 
@@ -23,14 +25,18 @@ class HomepageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.homepage)
+        binding = DataBindingUtil.setContentView(this,R.layout.homepage)
 
         planetAdapter = PlanetAdapter()
 
-        binding = DataBindingUtil.setContentView(this,R.layout.homepage)
         binding.recyclerView.adapter = planetAdapter
         binding.recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        binding.recyclerView.addItemDecoration(MarginItemDecoration(22))
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        val navbarActivity = NavbarActivity(this)
+        navbarActivity.setupNavbar(bottomNavigationView)
 
         fetchExoplanets()
     }
@@ -60,6 +66,7 @@ class HomepageActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<Planet>>, t: Throwable) {
                 // Lida com falhas de rede ou outros erros
+                println(t.message)
                 Toast.makeText(this@HomepageActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })

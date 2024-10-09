@@ -36,8 +36,8 @@
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="Name"
+        android:hint="Please type your password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -71,7 +71,6 @@
         android:layout_marginTop="32dp"
         android:text="Cosmic Explorer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,8 +80,8 @@
         android:layout_height="49dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Please type your e-mail "
         android:inputType="text"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -92,10 +91,23 @@
         android:layout_width="350dp"
         android:layout_height="49dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/blue"
         android:text="Create Account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <ImageView
+        android:id="@+id/cosmic"
+        android:layout_width="202dp"
+        android:layout_height="203dp"
+        android:layout_marginTop="16dp"
+        android:maxWidth="15dp"
+        android:maxHeight="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

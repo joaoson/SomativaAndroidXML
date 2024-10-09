@@ -11,6 +11,10 @@ interface UserDAO {
     fun insert(user: User)
     @Query("SELECT * FROM usuarios")
     fun getAll(): List<User>
+    @Query("SELECT * FROM usuarios WHERE email = :email AND senha = :senha LIMIT 1")
+    fun getUserByEmailAndPassword(email: String, senha: String): User?
+    @Query("SELECT * FROM usuarios WHERE email = :email LIMIT 1")
+    fun getUserByEmail(email: String): User?
     @Update
     fun update(user: User)
     @Delete

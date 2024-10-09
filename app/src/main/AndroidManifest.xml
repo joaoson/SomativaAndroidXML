@@ -41,6 +41,37 @@
                 </intent-filter>
             -->
         </activity>
+        <activity android:name=".NasaPhotosActivity"
+            android:exported="true" >
+            <!--
+                If HomepageActivity is the main entry point, add the following intent filters:
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".NavbarPageActivity"
+            android:exported="true" >
+            <!--
+                If HomepageActivity is the main entry point, add the following intent filters:
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".EditUserActivity"
+            android:exported="true" >
+            <!--
+                If HomepageActivity is the main entry point, add the following intent filters:
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            -->
+        </activity>
     </application>
+
 
 </manifest>
