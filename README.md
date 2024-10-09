@@ -15,7 +15,8 @@ Cosmic Explore is an Android application developed for *space enthusiasts* who w
 - *NASA Photos*: View stunning images directly from NASA's collection.
 - *Space Facts*: Learn interesting facts and trivia about space and NASA missions.
 
-  ![image](https://github.com/user-attachments/assets/b4f13cf3-1911-4d4e-83f1-cb690b09dd63)
+  ![image](https://github.com/user-attachments/assets/3db9d998-6fb4-422a-9ec4-bf17dbbc0139)
+
 
 
 ## Technology Stack
